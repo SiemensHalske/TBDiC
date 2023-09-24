@@ -86,7 +86,19 @@ class TBDIC_drawer:
         self.scene = QGraphicsScene()
         self.drawing_area.setScene(self.scene)
 
-    def draw_rectangle(self, starting_point: tuple, width, height, rounded=False, color=None, obj=None):
+    def draw_rectangle(self, starting_point: tuple, width, height, rotation, rounded=False, color=None, obj=None):
+        pass
+
+    def draw_ellipse(self, starting_point: tuple, width, height, rotation, color=None, obj=None):
+        pass
+
+    def draw_circle(self, starting_point: tuple, diameter, color=None, obj=None):
+        pass
+
+    def draw_line(self, starting_point: tuple, ending_point: tuple, color=None, obj=None):
+        pass
+
+    def draw_arrow(self, starting_point: tuple, ending_point: tuple, color=None, obj=None):
         pass
 
 
