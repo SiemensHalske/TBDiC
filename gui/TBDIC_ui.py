@@ -324,7 +324,7 @@ class Ui_MainWindow(object):
         self.checkBox_quickSetting3.setText(QCoreApplication.translate("MainWindow", u"CheckBox", None))
         self.checkBox_quickSetting5.setText(QCoreApplication.translate("MainWindow", u"CheckBox", None))
         self.checkBox_quickSetting2.setText(QCoreApplication.translate("MainWindow", u"CheckBox", None))
-        self.checkBox_quickSetting1.setText(QCoreApplication.translate("MainWindow", u"CheckBox", None))
+        self.checkBox_quickSetting1.setText(QCoreApplication.translate("MainWindow", u"render 'on the go'", None))
         self.checkBox_quickSetting9.setText(QCoreApplication.translate("MainWindow", u"Dark background", None))
         self.checkBox_quickSetting6.setText(QCoreApplication.translate("MainWindow", u"CheckBox", None))
         self.checkBox_quickSetting8.setText(QCoreApplication.translate("MainWindow", u"CheckBox", None))

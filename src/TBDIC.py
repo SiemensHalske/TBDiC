@@ -34,6 +34,10 @@ from types import SimpleNamespace
 from PyQt5.QtWidgets import QApplication, QMainWindow, QStackedWidget
 from PyQt5.uic import loadUi
 from PyQt5.QtCore import Qt, QEvent
+from PyQt5.QtWidgets import QGraphicsScene
+# from PyQt5.QtGui import QPen, QBrush, QTransform
+# from PyQt5.QtCore import QRectF
+# from PyQt5.QtWidgets import QGraphicsRectItem
 
 from TBDIC_core import TBDIC_core
 
@@ -79,6 +83,11 @@ class TBDIC_drawer:
 
     def __init__(self, drawing_area):
         self.drawing_area = drawing_area
+        self.scene = QGraphicsScene()
+        self.drawing_area.setScene(self.scene)
+
+    def draw_rectangle(self, starting_point: tuple, width, height, rounded=False, color=None, obj=None):
+        pass
 
 
 class MainApp(QMainWindow):

@@ -251,7 +251,7 @@
           <bool>true</bool>
          </property>
          <property name="text">
-          <string>CheckBox</string>
+          <string>render 'on the go'</string>
          </property>
         </widget>
        </item>
