@@ -35,20 +35,43 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QStackedWidget
 from PyQt5.uic import loadUi
 from PyQt5.QtCore import Qt, QEvent
 from PyQt5.QtWidgets import QGraphicsScene
-# from PyQt5.QtGui import QPen, QBrush, QTransform
+from PyQt5.QtGui import QPen, QColor
 # from PyQt5.QtCore import QRectF
 # from PyQt5.QtWidgets import QGraphicsRectItem
+from PyQt5.QtWidgets import QGraphicsRectItem
+from typing import Union, Optional
 
 from TBDIC_core import TBDIC_core
+
+
+def feature_enabled(func):
+    """
+    This decorator checks whether a feature is enabled or not.
+    """
+
+    def wrapper(self, *args, **kwargs):
+        if CoreFunctions.feature_enabled(func.__name__):
+            return func(self, *args, **kwargs)
+        else:
+            return None
+    return wrapper
 
 
 class DATA:
     """
     This class contains all the data that is used in the program.
+
+    FEATURE_STATUS: This dictionary contains the status of all the features.
+                    All new features should be added here and set to False.
     """
 
     UI_BASE_PATH = '/home/hendrik/Documents/Projects/TBDiC/gui/'
     INITIAL_SIZE = (1280, 720)
+
+    FEATURE_STATUS = {
+        '_applyRoundedCorners': False,
+        '_imageLoader': False,
+    }
 
     def __init__(self):
         pass
@@ -65,6 +88,20 @@ class CoreFunctions:
     def __init__(self):
         pass
 
+    def _check_if_feature_enabled(self):
+        """
+        This function checks whether a feature is enabled or not.
+        """
+        pass
+
+    def feature_enabled(self, feature_name: str) -> bool:
+        """
+        This function checks whether a feature is enabled or not.
+        """
+        feature_status = False
+
+        return feature_status
+
 
 class UiLoader:
     def load_ui(self, ui_file_name):
@@ -73,7 +110,51 @@ class UiLoader:
         return ui
 
 
-class TBDIC_drawer:
+class TBDIC_drawer_helper:
+    """
+    This class contains all the helper functions for the TBDIC_drawer class.
+    """
+
+    def __init__(self):
+        pass
+
+    def _setColor(
+        self,
+        pen_size: int = 2,
+        color: Union[tuple, Optional[str]] = None
+    ) -> QPen:
+        """
+        This function sets the color of the pen.
+
+        @param color: The color of the pen. (rgb tuple or color name)
+
+        @return: The pen with the color set.
+        """
+
+        pen = QPen()
+        pen.setWidth(pen_size)
+
+        if color is not None:
+            if isinstance(color, tuple):
+                pen.setColor(QColor(color[0], color[1], color[2]))
+            elif isinstance(color, str):
+                pen.setColor(QColor(color))
+
+        return pen
+
+    def _setObject(self):
+        pass
+
+    @feature_enabled
+    def _imageLoader(self):
+        pass
+
+    @feature_enabled
+    def _applyRoundedCorners(self, rect_item: QGraphicsRectItem):
+        pass
+
+
+class TBDIC_drawer(TBDIC_drawer_helper):
     """
     This class contains all the functions that draw the diagrams.
 
@@ -81,24 +162,167 @@ class TBDIC_drawer:
     in the 'graphicsView_diagramDisplay' widget.
     """
 
+    auto_name_template_line = 'line_{}'
+    auto_name_template_arrow = 'arrow_{}'
+    auto_name_template_rectangle = 'rectangle_{}'
+    auto_name_template_ellipse = 'ellipse_{}'
+    auto_name_template_circle = 'circle_{}'
+    AUTO_ELEMENT_NAMES = []
+
     def __init__(self, drawing_area):
         self.drawing_area = drawing_area
         self.scene = QGraphicsScene()
         self.drawing_area.setScene(self.scene)
 
-    def draw_rectangle(self, starting_point: tuple, width, height, rotation, rounded=False, color=None, obj=None):
+    def _addElementName(self, name: str, auto_name: bool = True) -> bool:
+        """
+        This function adds an element name to the list of element names.
+
+        @param name: The name of the element.
+        @param auto_name: Whether the name should be automatically generated.
+
+        @return: bool - Whether the name was added successfully.
+        """
+        if auto_name:
+            if name.startswith('line'):
+                prefix = 'line'
+            elif name.startswith('rectangle'):
+                prefix = 'rectangle'
+            elif name.startswith('circle'):
+                prefix = 'circle'
+            elif name.startswith('ellipse'):
+                prefix = 'ellipse'
+            elif name.startswith('arrow'):
+                prefix = 'arrow'
+            else:
+                return False
+
+            # Find the smallest index for the corresponding name
+            index = 1
+            while f"{prefix}_{index}" in self.AUTO_ELEMENT_NAMES:
+                index += 1
+
+            name = f"{prefix}_{index}"
+
+        self.AUTO_ELEMENT_NAMES.append(name)
+        return True
+
+    def draw_line(
+        self,
+        name: str,
+        starting_point: tuple,
+        ending_point: tuple,
+        color: Union[tuple, Optional[str]] = None
+    ) -> None:
+        """
+        This function draws a line.
+        """
+
+        if name is None:
+            ack = self._addElementName(name=name)
+        else:
+            ack = self._addElementName(name=name, auto_name=False)
+
+        if not ack:
+            return -1
+
+        pen = self._setColor(color=color)
+
+        self.scene.addLine(
+            starting_point[0],
+            starting_point[1],
+            ending_point[0],
+            ending_point[1],
+            pen
+        )
+
+    def draw_arrow(
+        self,
+        name: str,
+        starting_point: tuple,
+        ending_point: tuple,
+        color: Union[tuple, Optional[str]] = None
+    ):
+        """
+        This function draws an arrow.
+        """
+
         pass
 
-    def draw_ellipse(self, starting_point: tuple, width, height, rotation, color=None, obj=None):
+    def draw_rectangle(
+        self,
+        name: str = "rectangle",
+        starting_point: tuple = (0, 0),
+        width: int = 0,  # width (rightward x-coordinate)
+        height: int = 0,  # heigth (downward y-coordinate)
+        rotation: int = 0,  # rotation in degrees
+        rounded: bool = False,  # rounded edges or not?
+        color: Union[tuple, Optional[str]] = None,  # color of the rectangle
+        display_object: list = None  # list of the object to display
+    ):
+        """
+        This function draws a rectangle.
+        """
+
+        if name is None:
+            ack = self._addElementName(name=name)
+        else:
+            ack = self._addElementName(name=name, auto_name=False)
+
+        if not ack:
+            return -1
+
+        # Set the color
+        pen = self._setColor(color=color)
+
+        # Create a QGraphicsRectItem
+        rect_item = QGraphicsRectItem(
+            starting_point[0], starting_point[1], width, height)
+
+        # Set pen (color and other settings)
+        rect_item.setPen(pen)
+
+        # Apply rotation
+        if rotation != 0:
+            rect_item.setRotation(rotation)
+
+        # Apply rounded corners
+        if rounded:
+            # You'll have to implement this yourself, QGraphicsRectItem doesn't
+            # support it out-of-the-box
+            self._applyRoundedCorners(rect_item)
+
+        # Add the item to the scene
+        self.scene.addItem(rect_item)
+
+    def draw_ellipse(
+        self,
+        name: str,
+        starting_point: tuple,
+        width: int,
+        height: int,
+        rotation: int,
+        color: Union[tuple, Optional[str]] = None,
+        display_object=None
+    ):
+        """
+        This function draws an ellipse.
+        """
+
         pass
 
-    def draw_circle(self, starting_point: tuple, diameter, color=None, obj=None):
-        pass
+    def draw_circle(
+        self,
+        name: str,
+        starting_point: tuple,
+        radius: int,
+        color: Union[tuple, Optional[str]] = None,
+        display_object=None
+    ):
+        """
+        This function draws a circle.
+        """
 
-    def draw_line(self, starting_point: tuple, ending_point: tuple, color=None, obj=None):
-        pass
-
-    def draw_arrow(self, starting_point: tuple, ending_point: tuple, color=None, obj=None):
         pass
 
 
