@@ -34,27 +34,13 @@ from types import SimpleNamespace
 from PyQt5.QtWidgets import QApplication, QMainWindow, QStackedWidget
 from PyQt5.uic import loadUi
 from PyQt5.QtCore import Qt, QEvent
-from PyQt5.QtWidgets import QGraphicsScene
-from PyQt5.QtGui import QPen, QColor
+# from PyQt5.QtWidgets import QGraphicsScene
 # from PyQt5.QtCore import QRectF
 # from PyQt5.QtWidgets import QGraphicsRectItem
-from PyQt5.QtWidgets import QGraphicsRectItem
-from typing import Union, Optional
+# from typing import Union, Optional
 
 from TBDIC_core import TBDIC_core
-
-
-def feature_enabled(func):
-    """
-    This decorator checks whether a feature is enabled or not.
-    """
-
-    def wrapper(self, *args, **kwargs):
-        if CoreFunctions.feature_enabled(func.__name__):
-            return func(self, *args, **kwargs)
-        else:
-            return None
-    return wrapper
+from TBDIC_drawer import TBDIC_drawer
 
 
 class DATA:
@@ -65,13 +51,9 @@ class DATA:
                     All new features should be added here and set to False.
     """
 
+    GITHUB_REPO_URL = 'https://github.com/SiemensHalske/TBDiC'
     UI_BASE_PATH = '/home/hendrik/Documents/Projects/TBDiC/gui/'
     INITIAL_SIZE = (1280, 720)
-
-    FEATURE_STATUS = {
-        '_applyRoundedCorners': False,
-        '_imageLoader': False,
-    }
 
     def __init__(self):
         pass
@@ -88,242 +70,12 @@ class CoreFunctions:
     def __init__(self):
         pass
 
-    def _check_if_feature_enabled(self):
-        """
-        This function checks whether a feature is enabled or not.
-        """
-        pass
-
-    def feature_enabled(self, feature_name: str) -> bool:
-        """
-        This function checks whether a feature is enabled or not.
-        """
-        feature_status = False
-
-        return feature_status
-
 
 class UiLoader:
     def load_ui(self, ui_file_name):
         ui = QMainWindow()
         loadUi(ui_file_name, ui)
         return ui
-
-
-class TBDIC_drawer_helper:
-    """
-    This class contains all the helper functions for the TBDIC_drawer class.
-    """
-
-    def __init__(self):
-        pass
-
-    def _setColor(
-        self,
-        pen_size: int = 2,
-        color: Union[tuple, Optional[str]] = None
-    ) -> QPen:
-        """
-        This function sets the color of the pen.
-
-        @param color: The color of the pen. (rgb tuple or color name)
-
-        @return: The pen with the color set.
-        """
-
-        pen = QPen()
-        pen.setWidth(pen_size)
-
-        if color is not None:
-            if isinstance(color, tuple):
-                pen.setColor(QColor(color[0], color[1], color[2]))
-            elif isinstance(color, str):
-                pen.setColor(QColor(color))
-
-        return pen
-
-    def _setObject(self):
-        pass
-
-    @feature_enabled
-    def _imageLoader(self):
-        pass
-
-    @feature_enabled
-    def _applyRoundedCorners(self, rect_item: QGraphicsRectItem):
-        pass
-
-
-class TBDIC_drawer(TBDIC_drawer_helper):
-    """
-    This class contains all the functions that draw the diagrams.
-
-    The diagrams are drawn using the PyQt5 library
-    in the 'graphicsView_diagramDisplay' widget.
-    """
-
-    auto_name_template_line = 'line_{}'
-    auto_name_template_arrow = 'arrow_{}'
-    auto_name_template_rectangle = 'rectangle_{}'
-    auto_name_template_ellipse = 'ellipse_{}'
-    auto_name_template_circle = 'circle_{}'
-    AUTO_ELEMENT_NAMES = []
-
-    def __init__(self, drawing_area):
-        self.drawing_area = drawing_area
-        self.scene = QGraphicsScene()
-        self.drawing_area.setScene(self.scene)
-
-    def _addElementName(self, name: str, auto_name: bool = True) -> bool:
-        """
-        This function adds an element name to the list of element names.
-
-        @param name: The name of the element.
-        @param auto_name: Whether the name should be automatically generated.
-
-        @return: bool - Whether the name was added successfully.
-        """
-        if auto_name:
-            if name.startswith('line'):
-                prefix = 'line'
-            elif name.startswith('rectangle'):
-                prefix = 'rectangle'
-            elif name.startswith('circle'):
-                prefix = 'circle'
-            elif name.startswith('ellipse'):
-                prefix = 'ellipse'
-            elif name.startswith('arrow'):
-                prefix = 'arrow'
-            else:
-                return False
-
-            # Find the smallest index for the corresponding name
-            index = 1
-            while f"{prefix}_{index}" in self.AUTO_ELEMENT_NAMES:
-                index += 1
-
-            name = f"{prefix}_{index}"
-
-        self.AUTO_ELEMENT_NAMES.append(name)
-        return True
-
-    def draw_line(
-        self,
-        name: str,
-        starting_point: tuple,
-        ending_point: tuple,
-        color: Union[tuple, Optional[str]] = None
-    ) -> None:
-        """
-        This function draws a line.
-        """
-
-        if name is None:
-            ack = self._addElementName(name=name)
-        else:
-            ack = self._addElementName(name=name, auto_name=False)
-
-        if not ack:
-            return -1
-
-        pen = self._setColor(color=color)
-
-        self.scene.addLine(
-            starting_point[0],
-            starting_point[1],
-            ending_point[0],
-            ending_point[1],
-            pen
-        )
-
-    def draw_arrow(
-        self,
-        name: str,
-        starting_point: tuple,
-        ending_point: tuple,
-        color: Union[tuple, Optional[str]] = None
-    ):
-        """
-        This function draws an arrow.
-        """
-
-        pass
-
-    def draw_rectangle(
-        self,
-        name: str = "rectangle",
-        starting_point: tuple = (0, 0),
-        width: int = 0,  # width (rightward x-coordinate)
-        height: int = 0,  # heigth (downward y-coordinate)
-        rotation: int = 0,  # rotation in degrees
-        rounded: bool = False,  # rounded edges or not?
-        color: Union[tuple, Optional[str]] = None,  # color of the rectangle
-        display_object: list = None  # list of the object to display
-    ):
-        """
-        This function draws a rectangle.
-        """
-
-        if name is None:
-            ack = self._addElementName(name=name)
-        else:
-            ack = self._addElementName(name=name, auto_name=False)
-
-        if not ack:
-            return -1
-
-        # Set the color
-        pen = self._setColor(color=color)
-
-        # Create a QGraphicsRectItem
-        rect_item = QGraphicsRectItem(
-            starting_point[0], starting_point[1], width, height)
-
-        # Set pen (color and other settings)
-        rect_item.setPen(pen)
-
-        # Apply rotation
-        if rotation != 0:
-            rect_item.setRotation(rotation)
-
-        # Apply rounded corners
-        if rounded:
-            # You'll have to implement this yourself, QGraphicsRectItem doesn't
-            # support it out-of-the-box
-            self._applyRoundedCorners(rect_item)
-
-        # Add the item to the scene
-        self.scene.addItem(rect_item)
-
-    def draw_ellipse(
-        self,
-        name: str,
-        starting_point: tuple,
-        width: int,
-        height: int,
-        rotation: int,
-        color: Union[tuple, Optional[str]] = None,
-        display_object=None
-    ):
-        """
-        This function draws an ellipse.
-        """
-
-        pass
-
-    def draw_circle(
-        self,
-        name: str,
-        starting_point: tuple,
-        radius: int,
-        color: Union[tuple, Optional[str]] = None,
-        display_object=None
-    ):
-        """
-        This function draws a circle.
-        """
-
-        pass
 
 
 class MainApp(QMainWindow):
@@ -337,13 +89,14 @@ class MainApp(QMainWindow):
         self.data_loader = DATA()
         self.ui_loader = UiLoader()
         self.tbdic_core = TBDIC_core()
-        self.tbdic_drawer = TBDIC_drawer(self)
 
         self.stacked_widget = QStackedWidget()
 
         self.main_window = self.ui_loader.load_ui(
             self.data_loader.getUIBasePath() + 'TBDIC.ui')
 
+        self.tbdic_drawer = TBDIC_drawer(
+            self.main_window.graphicsView_diagramDisplay)
         self.configure_connections()
 
         self.stacked_widget.addWidget(self.main_window)
@@ -355,7 +108,8 @@ class MainApp(QMainWindow):
     def eventFilter(self, source, event):
         if (event.type() == QEvent.KeyPress and
             event.key() == Qt.Key_Return and
-                source is self.text_edit):
+            event.modifiers() == Qt.ControlModifier and  # Prüfe auf CTRL
+                source is self.main_window.textEdit_commandInput):
 
             # Get the text from QTextEdit and pass it to onCommandHandling
             self.onCommandHandling()
@@ -380,7 +134,7 @@ class MainApp(QMainWindow):
         This function closes the application.
         """
 
-        self.QApplication.instance().quit()
+        QApplication.instance().quit()
 
     def onCheckBoxQuickSetting(self):
         # Create a list of all check boxes
@@ -422,12 +176,28 @@ class MainApp(QMainWindow):
         raw_command_text = self.main_window.textEdit_commandInput.toPlainText()
         command_text: list = raw_command_text.split('\n')
 
-        # Remove empty lines
-        # Remove comments (starting with #!)
-        command_text = [line for line in command_text if line != '']
-        command_text = [line for line in command_text if line[0] != '#!']
+        self.main_window.textEdit_commandInput.clear()
 
-        # Loop through all commands
+        for line in command_text:
+            # grab the text til the first whitespace -> command
+            command = line.split(' ')[0]
+
+            if command == '':
+                continue
+            elif command.startswith('!'):
+                command = command[1:]
+                if command == 'clear':
+                    self.tbdic_drawer.clear_scene()
+                elif command == 'exit':
+                    self.onCloseApplication()
+                elif command == 'help':
+                    os.system(f"xdg-open {DATA.GITHUB_REPO_URL}")
+            elif command.startswith('draw'):
+                self.onDrawCommand(command)
+
+        # TODO: #1 Add... the rest
+
+        self.setNotificationBox('Command executed. OK!')
 
     def render_diagram(self):
         pass
