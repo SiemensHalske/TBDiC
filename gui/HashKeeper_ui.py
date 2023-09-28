@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
+<<<<<<< HEAD
 # Form implementation generated from reading ui file 'HashKeeper.ui'
+=======
+# Form implementation generated from reading ui file 'c:\Users\Hendrik.Siemens\Documents\GitHub\TBDiC\gui\HashKeeper.ui'
+>>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -23,6 +27,7 @@ class Ui_MainWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
+<<<<<<< HEAD
         self.line = QtWidgets.QFrame(self.verticalLayoutWidget)
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -33,6 +38,8 @@ class Ui_MainWindow(object):
         self.pushButton_selectBaseDir = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.pushButton_selectBaseDir.setObjectName("pushButton_selectBaseDir")
         self.verticalLayout_4.addWidget(self.pushButton_selectBaseDir)
+=======
+>>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
         self.listView_selectDirectories = QtWidgets.QListView(self.verticalLayoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -41,8 +48,17 @@ class Ui_MainWindow(object):
         self.listView_selectDirectories.setSizePolicy(sizePolicy)
         self.listView_selectDirectories.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
         self.listView_selectDirectories.setObjectName("listView_selectDirectories")
+<<<<<<< HEAD
         self.verticalLayout_4.addWidget(self.listView_selectDirectories)
         self.verticalLayout.addLayout(self.verticalLayout_4)
+=======
+        self.verticalLayout.addWidget(self.listView_selectDirectories)
+        self.line = QtWidgets.QFrame(self.verticalLayoutWidget)
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.verticalLayout.addWidget(self.line)
+>>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
         spacerItem = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.verticalLayout.addItem(spacerItem)
         self.gridLayout_3 = QtWidgets.QGridLayout()
@@ -133,6 +149,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addItem(spacerItem4)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+<<<<<<< HEAD
         self.timeEdit_setDailyTime = QtWidgets.QTimeEdit(self.verticalLayoutWidget)
         self.timeEdit_setDailyTime.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.timeEdit_setDailyTime.setAutoFillBackground(True)
@@ -143,6 +160,18 @@ class Ui_MainWindow(object):
         self.pushButton_setDailyTime.setAutoFillBackground(True)
         self.pushButton_setDailyTime.setObjectName("pushButton_setDailyTime")
         self.horizontalLayout_3.addWidget(self.pushButton_setDailyTime)
+=======
+        self.timeEdit = QtWidgets.QTimeEdit(self.verticalLayoutWidget)
+        self.timeEdit.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.timeEdit.setAutoFillBackground(True)
+        self.timeEdit.setCorrectionMode(QtWidgets.QAbstractSpinBox.CorrectToPreviousValue)
+        self.timeEdit.setObjectName("timeEdit")
+        self.horizontalLayout_3.addWidget(self.timeEdit)
+        self.pushButton_5 = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.pushButton_5.setAutoFillBackground(True)
+        self.pushButton_5.setObjectName("pushButton_5")
+        self.horizontalLayout_3.addWidget(self.pushButton_5)
+>>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
         self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(669, 0, 601, 541))
@@ -156,9 +185,15 @@ class Ui_MainWindow(object):
         self.textBrowser_displayResults.setObjectName("textBrowser_displayResults")
         self.gridLayout.addWidget(self.textBrowser_displayResults, 0, 0, 1, 1)
         self.verticalLayout_2.addLayout(self.gridLayout)
+<<<<<<< HEAD
         self.pushButton_startHashRound = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
         self.pushButton_startHashRound.setObjectName("pushButton_startHashRound")
         self.verticalLayout_2.addWidget(self.pushButton_startHashRound)
+=======
+        self.pushButton_3 = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.verticalLayout_2.addWidget(self.pushButton_3)
+>>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
         self.verticalLayoutWidget_3 = QtWidgets.QWidget(self.centralwidget)
         self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(10, 550, 1261, 111))
         self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
@@ -376,7 +411,10 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+<<<<<<< HEAD
         self.pushButton_selectBaseDir.setText(_translate("MainWindow", "Select base directory"))
+=======
+>>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
         self.checkBox_13.setText(_translate("MainWindow", "Close application after finish"))
         self.checkBox_hashOnlyFiles.setText(_translate("MainWindow", "Files only"))
         self.checkBox_hashDirectoriesOnly.setText(_translate("MainWindow", "Directories only"))
@@ -392,8 +430,13 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Hash algorithm options"))
         self.checkBox_5.setText(_translate("MainWindow", "MD5"))
         self.checkBox_3.setText(_translate("MainWindow", "SHA512"))
+<<<<<<< HEAD
         self.pushButton_setDailyTime.setText(_translate("MainWindow", "Set daily time"))
         self.pushButton_startHashRound.setText(_translate("MainWindow", "Start / Set"))
+=======
+        self.pushButton_5.setText(_translate("MainWindow", "Set daily time"))
+        self.pushButton_3.setText(_translate("MainWindow", "Start / Set"))
+>>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
         self.label_5.setText(_translate("MainWindow", "  Progress in current round:  "))
         self.pushButton_Exit.setText(_translate("MainWindow", "Exit"))
         self.pushButton_2.setText(_translate("MainWindow", "PushButton"))
@@ -413,6 +456,7 @@ class Ui_MainWindow(object):
         self.actionExport_config_file.setText(_translate("MainWindow", "Export config file"))
         self.actionSetup_HashKeeper.setText(_translate("MainWindow", "Setup HashKeeper"))
         self.actionOpen_Preferences.setText(_translate("MainWindow", "Open Preferences"))
+<<<<<<< HEAD
 
 
 if __name__ == "__main__":
@@ -423,3 +467,5 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+=======
+>>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
