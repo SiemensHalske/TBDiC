@@ -9,7 +9,8 @@ Last Modified: 26-09-2023
 Version: 0.1
 
 Description:
-    HashKeeper is a tool to keep track of hashes of selected files and directories.
+    HashKeeper is a tool to keep track of hashes of selected
+    files and directories.
 
 Usage:
     python3 HashKeeper.py [options]

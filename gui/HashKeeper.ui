@@ -25,24 +25,35 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QListView" name="listView_selectDirectories">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="selectionMode">
-        <enum>QAbstractItemView::MultiSelection</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="Line" name="line">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
       </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QPushButton" name="pushButton_selectBaseDir">
+         <property name="text">
+          <string>Select base directory</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListView" name="listView_selectDirectories">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::MultiSelection</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
       <spacer name="verticalSpacer_3">
@@ -303,7 +314,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QTimeEdit" name="timeEdit">
+        <widget class="QTimeEdit" name="timeEdit_setDailyTime">
          <property name="layoutDirection">
           <enum>Qt::LeftToRight</enum>
          </property>
@@ -316,7 +327,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QPushButton" name="pushButton_setDailyTime">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -347,7 +358,7 @@
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="pushButton_startHashRound">
        <property name="text">
         <string>Start / Set</string>
        </property>
