@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 
-<<<<<<< HEAD
 # Form implementation generated from reading ui file 'HashKeeper.ui'
-=======
-# Form implementation generated from reading ui file 'c:\Users\Hendrik.Siemens\Documents\GitHub\TBDiC\gui\HashKeeper.ui'
->>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -27,7 +23,6 @@ class Ui_MainWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
-<<<<<<< HEAD
         self.line = QtWidgets.QFrame(self.verticalLayoutWidget)
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -38,8 +33,6 @@ class Ui_MainWindow(object):
         self.pushButton_selectBaseDir = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.pushButton_selectBaseDir.setObjectName("pushButton_selectBaseDir")
         self.verticalLayout_4.addWidget(self.pushButton_selectBaseDir)
-=======
->>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
         self.listView_selectDirectories = QtWidgets.QListView(self.verticalLayoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -48,17 +41,8 @@ class Ui_MainWindow(object):
         self.listView_selectDirectories.setSizePolicy(sizePolicy)
         self.listView_selectDirectories.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
         self.listView_selectDirectories.setObjectName("listView_selectDirectories")
-<<<<<<< HEAD
         self.verticalLayout_4.addWidget(self.listView_selectDirectories)
         self.verticalLayout.addLayout(self.verticalLayout_4)
-=======
-        self.verticalLayout.addWidget(self.listView_selectDirectories)
-        self.line = QtWidgets.QFrame(self.verticalLayoutWidget)
-        self.line.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line.setObjectName("line")
-        self.verticalLayout.addWidget(self.line)
->>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
         spacerItem = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.verticalLayout.addItem(spacerItem)
         self.gridLayout_3 = QtWidgets.QGridLayout()
@@ -96,34 +80,34 @@ class Ui_MainWindow(object):
         self.verticalLayout.addItem(spacerItem2)
         self.gridLayout_2 = QtWidgets.QGridLayout()
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.checkBox_2 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
-        self.checkBox_2.setAutoFillBackground(True)
-        self.checkBox_2.setObjectName("checkBox_2")
-        self.gridLayout_2.addWidget(self.checkBox_2, 2, 1, 1, 1)
-        self.checkBox = QtWidgets.QCheckBox(self.verticalLayoutWidget)
-        self.checkBox.setAutoFillBackground(True)
-        self.checkBox.setObjectName("checkBox")
-        self.gridLayout_2.addWidget(self.checkBox, 2, 2, 1, 1)
-        self.checkBox_9 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
-        self.checkBox_9.setAutoFillBackground(True)
-        self.checkBox_9.setObjectName("checkBox_9")
-        self.gridLayout_2.addWidget(self.checkBox_9, 4, 2, 1, 1)
-        self.checkBox_7 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
-        self.checkBox_7.setAutoFillBackground(True)
-        self.checkBox_7.setObjectName("checkBox_7")
-        self.gridLayout_2.addWidget(self.checkBox_7, 4, 0, 1, 1)
-        self.checkBox_4 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
-        self.checkBox_4.setAutoFillBackground(True)
-        self.checkBox_4.setObjectName("checkBox_4")
-        self.gridLayout_2.addWidget(self.checkBox_4, 3, 2, 1, 1)
-        self.checkBox_6 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
-        self.checkBox_6.setAutoFillBackground(True)
-        self.checkBox_6.setObjectName("checkBox_6")
-        self.gridLayout_2.addWidget(self.checkBox_6, 3, 0, 1, 1)
-        self.checkBox_8 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
-        self.checkBox_8.setAutoFillBackground(True)
-        self.checkBox_8.setObjectName("checkBox_8")
-        self.gridLayout_2.addWidget(self.checkBox_8, 4, 1, 1, 1)
+        self.checkBox_SHA1 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
+        self.checkBox_SHA1.setAutoFillBackground(True)
+        self.checkBox_SHA1.setObjectName("checkBox_SHA1")
+        self.gridLayout_2.addWidget(self.checkBox_SHA1, 2, 1, 1, 1)
+        self.checkBox_SHA256 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
+        self.checkBox_SHA256.setAutoFillBackground(True)
+        self.checkBox_SHA256.setObjectName("checkBox_SHA256")
+        self.gridLayout_2.addWidget(self.checkBox_SHA256, 2, 2, 1, 1)
+        self.checkBox_TIGER = QtWidgets.QCheckBox(self.verticalLayoutWidget)
+        self.checkBox_TIGER.setAutoFillBackground(True)
+        self.checkBox_TIGER.setObjectName("checkBox_TIGER")
+        self.gridLayout_2.addWidget(self.checkBox_TIGER, 4, 2, 1, 1)
+        self.checkBox_BLAKE3 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
+        self.checkBox_BLAKE3.setAutoFillBackground(True)
+        self.checkBox_BLAKE3.setObjectName("checkBox_BLAKE3")
+        self.gridLayout_2.addWidget(self.checkBox_BLAKE3, 4, 0, 1, 1)
+        self.checkBox_WHIRL = QtWidgets.QCheckBox(self.verticalLayoutWidget)
+        self.checkBox_WHIRL.setAutoFillBackground(True)
+        self.checkBox_WHIRL.setObjectName("checkBox_WHIRL")
+        self.gridLayout_2.addWidget(self.checkBox_WHIRL, 3, 2, 1, 1)
+        self.checkBox_SHA3 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
+        self.checkBox_SHA3.setAutoFillBackground(True)
+        self.checkBox_SHA3.setObjectName("checkBox_SHA3")
+        self.gridLayout_2.addWidget(self.checkBox_SHA3, 3, 0, 1, 1)
+        self.checkBox_RIPEMD160 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
+        self.checkBox_RIPEMD160.setAutoFillBackground(True)
+        self.checkBox_RIPEMD160.setObjectName("checkBox_RIPEMD160")
+        self.gridLayout_2.addWidget(self.checkBox_RIPEMD160, 4, 1, 1, 1)
         self.label = QtWidgets.QLabel(self.verticalLayoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -134,14 +118,14 @@ class Ui_MainWindow(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.gridLayout_2.addWidget(self.label, 0, 0, 1, 3)
-        self.checkBox_5 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
-        self.checkBox_5.setAutoFillBackground(True)
-        self.checkBox_5.setObjectName("checkBox_5")
-        self.gridLayout_2.addWidget(self.checkBox_5, 2, 0, 1, 1)
-        self.checkBox_3 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
-        self.checkBox_3.setAutoFillBackground(True)
-        self.checkBox_3.setObjectName("checkBox_3")
-        self.gridLayout_2.addWidget(self.checkBox_3, 3, 1, 1, 1)
+        self.checkBox_hashMD5 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
+        self.checkBox_hashMD5.setAutoFillBackground(True)
+        self.checkBox_hashMD5.setObjectName("checkBox_hashMD5")
+        self.gridLayout_2.addWidget(self.checkBox_hashMD5, 2, 0, 1, 1)
+        self.checkBox_SHA512 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
+        self.checkBox_SHA512.setAutoFillBackground(True)
+        self.checkBox_SHA512.setObjectName("checkBox_SHA512")
+        self.gridLayout_2.addWidget(self.checkBox_SHA512, 3, 1, 1, 1)
         spacerItem3 = QtWidgets.QSpacerItem(20, 5, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
         self.gridLayout_2.addItem(spacerItem3, 1, 0, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout_2)
@@ -149,7 +133,6 @@ class Ui_MainWindow(object):
         self.verticalLayout.addItem(spacerItem4)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-<<<<<<< HEAD
         self.timeEdit_setDailyTime = QtWidgets.QTimeEdit(self.verticalLayoutWidget)
         self.timeEdit_setDailyTime.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.timeEdit_setDailyTime.setAutoFillBackground(True)
@@ -160,18 +143,6 @@ class Ui_MainWindow(object):
         self.pushButton_setDailyTime.setAutoFillBackground(True)
         self.pushButton_setDailyTime.setObjectName("pushButton_setDailyTime")
         self.horizontalLayout_3.addWidget(self.pushButton_setDailyTime)
-=======
-        self.timeEdit = QtWidgets.QTimeEdit(self.verticalLayoutWidget)
-        self.timeEdit.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.timeEdit.setAutoFillBackground(True)
-        self.timeEdit.setCorrectionMode(QtWidgets.QAbstractSpinBox.CorrectToPreviousValue)
-        self.timeEdit.setObjectName("timeEdit")
-        self.horizontalLayout_3.addWidget(self.timeEdit)
-        self.pushButton_5 = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton_5.setAutoFillBackground(True)
-        self.pushButton_5.setObjectName("pushButton_5")
-        self.horizontalLayout_3.addWidget(self.pushButton_5)
->>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
         self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(669, 0, 601, 541))
@@ -185,15 +156,9 @@ class Ui_MainWindow(object):
         self.textBrowser_displayResults.setObjectName("textBrowser_displayResults")
         self.gridLayout.addWidget(self.textBrowser_displayResults, 0, 0, 1, 1)
         self.verticalLayout_2.addLayout(self.gridLayout)
-<<<<<<< HEAD
         self.pushButton_startHashRound = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
         self.pushButton_startHashRound.setObjectName("pushButton_startHashRound")
         self.verticalLayout_2.addWidget(self.pushButton_startHashRound)
-=======
-        self.pushButton_3 = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.verticalLayout_2.addWidget(self.pushButton_3)
->>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
         self.verticalLayoutWidget_3 = QtWidgets.QWidget(self.centralwidget)
         self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(10, 550, 1261, 111))
         self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
@@ -411,32 +376,24 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-<<<<<<< HEAD
         self.pushButton_selectBaseDir.setText(_translate("MainWindow", "Select base directory"))
-=======
->>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
         self.checkBox_13.setText(_translate("MainWindow", "Close application after finish"))
         self.checkBox_hashOnlyFiles.setText(_translate("MainWindow", "Files only"))
         self.checkBox_hashDirectoriesOnly.setText(_translate("MainWindow", "Directories only"))
         self.checkBox_onlyHashNewFiles.setText(_translate("MainWindow", "Only hash new files"))
         self.label_4.setText(_translate("MainWindow", "Hash round settings"))
-        self.checkBox_2.setText(_translate("MainWindow", "SHA-1"))
-        self.checkBox.setText(_translate("MainWindow", "SHA256"))
-        self.checkBox_9.setText(_translate("MainWindow", "Tiger"))
-        self.checkBox_7.setText(_translate("MainWindow", "BLAKE2"))
-        self.checkBox_4.setText(_translate("MainWindow", "Whirlpool"))
-        self.checkBox_6.setText(_translate("MainWindow", "SHA-3"))
-        self.checkBox_8.setText(_translate("MainWindow", "RIPEMD-160"))
+        self.checkBox_SHA1.setText(_translate("MainWindow", "SHA-1"))
+        self.checkBox_SHA256.setText(_translate("MainWindow", "SHA256"))
+        self.checkBox_TIGER.setText(_translate("MainWindow", "Tiger"))
+        self.checkBox_BLAKE3.setText(_translate("MainWindow", "BLAKE3"))
+        self.checkBox_WHIRL.setText(_translate("MainWindow", "Whirlpool"))
+        self.checkBox_SHA3.setText(_translate("MainWindow", "SHA-3"))
+        self.checkBox_RIPEMD160.setText(_translate("MainWindow", "RIPEMD-160"))
         self.label.setText(_translate("MainWindow", "Hash algorithm options"))
-        self.checkBox_5.setText(_translate("MainWindow", "MD5"))
-        self.checkBox_3.setText(_translate("MainWindow", "SHA512"))
-<<<<<<< HEAD
+        self.checkBox_hashMD5.setText(_translate("MainWindow", "MD5"))
+        self.checkBox_SHA512.setText(_translate("MainWindow", "SHA512"))
         self.pushButton_setDailyTime.setText(_translate("MainWindow", "Set daily time"))
         self.pushButton_startHashRound.setText(_translate("MainWindow", "Start / Set"))
-=======
-        self.pushButton_5.setText(_translate("MainWindow", "Set daily time"))
-        self.pushButton_3.setText(_translate("MainWindow", "Start / Set"))
->>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
         self.label_5.setText(_translate("MainWindow", "  Progress in current round:  "))
         self.pushButton_Exit.setText(_translate("MainWindow", "Exit"))
         self.pushButton_2.setText(_translate("MainWindow", "PushButton"))
@@ -456,7 +413,6 @@ class Ui_MainWindow(object):
         self.actionExport_config_file.setText(_translate("MainWindow", "Export config file"))
         self.actionSetup_HashKeeper.setText(_translate("MainWindow", "Setup HashKeeper"))
         self.actionOpen_Preferences.setText(_translate("MainWindow", "Open Preferences"))
-<<<<<<< HEAD
 
 
 if __name__ == "__main__":
@@ -467,5 +423,3 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-=======
->>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26

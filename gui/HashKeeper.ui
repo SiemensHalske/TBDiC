@@ -169,7 +169,7 @@
      <item>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="2" column="1">
-        <widget class="QCheckBox" name="checkBox_2">
+        <widget class="QCheckBox" name="checkBox_SHA1">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -179,7 +179,7 @@
         </widget>
        </item>
        <item row="2" column="2">
-        <widget class="QCheckBox" name="checkBox">
+        <widget class="QCheckBox" name="checkBox_SHA256">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -189,7 +189,7 @@
         </widget>
        </item>
        <item row="4" column="2">
-        <widget class="QCheckBox" name="checkBox_9">
+        <widget class="QCheckBox" name="checkBox_TIGER">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -199,17 +199,17 @@
         </widget>
        </item>
        <item row="4" column="0">
-        <widget class="QCheckBox" name="checkBox_7">
+        <widget class="QCheckBox" name="checkBox_BLAKE3">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
          <property name="text">
-          <string>BLAKE2</string>
+          <string>BLAKE3</string>
          </property>
         </widget>
        </item>
        <item row="3" column="2">
-        <widget class="QCheckBox" name="checkBox_4">
+        <widget class="QCheckBox" name="checkBox_WHIRL">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -219,7 +219,7 @@
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QCheckBox" name="checkBox_6">
+        <widget class="QCheckBox" name="checkBox_SHA3">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -229,7 +229,7 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QCheckBox" name="checkBox_8">
+        <widget class="QCheckBox" name="checkBox_RIPEMD160">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -258,7 +258,7 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QCheckBox" name="checkBox_5">
+        <widget class="QCheckBox" name="checkBox_hashMD5">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -268,7 +268,7 @@
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QCheckBox" name="checkBox_3">
+        <widget class="QCheckBox" name="checkBox_SHA512">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
