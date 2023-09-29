@@ -30,6 +30,7 @@ import sys
 import os
 
 from types import SimpleNamespace
+from typing import Union
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.uic import loadUi
 
@@ -58,7 +59,7 @@ class UiLoader:
     def __init__(self):
         pass
 
-    def ui_resolver(self, ui_name: str, auto_load: bool = True):
+    def ui_resolver(self, ui_name: str, auto_load: bool = True) -> Union[str, QMainWindow]:
         """
             Resolves the path to the UI file.
             Uses a restrictiv approach to prevent
