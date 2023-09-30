@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'HashKeeper.ui'
+# Form implementation generated from reading ui file 'c:\Users\Hendrik.Siemens\Documents\GitHub\TBDiC\gui\HashKeeper.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -413,13 +413,3 @@ class Ui_MainWindow(object):
         self.actionExport_config_file.setText(_translate("MainWindow", "Export config file"))
         self.actionSetup_HashKeeper.setText(_translate("MainWindow", "Setup HashKeeper"))
         self.actionOpen_Preferences.setText(_translate("MainWindow", "Open Preferences"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
