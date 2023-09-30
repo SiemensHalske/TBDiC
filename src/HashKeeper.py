@@ -47,6 +47,8 @@ class CoreFunctions:
     def clear_screen(self) -> None:
         """Clears the screen"""
         os.system("cls" if os.name == "nt" else "clear")
+        
+    def
 
 
 class UiLoader:
@@ -88,9 +90,9 @@ class MainApp(QMainWindow):
         self.ui_loader = UiLoader()
 
         self.main_window = self.ui_loader.ui_resolver("main", auto_load=True)
-        
+
     def configureConnects(self):
-        
+        pass
 
 # Function defintion
 
@@ -112,6 +114,9 @@ def setup() -> SimpleNamespace:
 
 
 if __name__ == "__main__":
+    operating_system = os.name
+    if operating_system == "nt" and sys.argv[1] != "nocheck":
+        sys.exit("This script is not compatible with Windows.")
     CoreFunctions().clear_screen()
     env = setup()
     exit_code = main(sys.argv, env)
