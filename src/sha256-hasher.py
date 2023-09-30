@@ -6,51 +6,21 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
 from PyQt5.QtWidgets import QPushButton, QFileDialog
 from PyQt5.QtWidgets import QHBoxLayout, QWidget, QVBoxLayout, QTextEdit
 from PyQt5.QtCore import Qt
-from hashlib import sha256
+from hashlib import sha1, sha256, sha512
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("SHA256-Hasher")
+        self.setWindowTitle("FileHasher")
 
         self.central_widget = QWidget()
         self.setCentralWidget(self.central_widget)
-
-        self.file_label = QLabel("Datei auswählen")
-        self.file_button = QPushButton("Datei öffnen")
-        self.hash_label = QLabel("SHA256-Hash")
-        if not env.text_edit:
-            self.hash_value = QLabel("Hash Wert...")
-        else:
-            self.hash_value = QTextEdit("Hash Wert...")
-        self.hash_copy_button = QPushButton("Hash kopieren")
-
-        self.file_label.setAlignment(Qt.AlignLeft)
-        self.hash_label.setAlignment(Qt.AlignLeft)
-
-        self.layout = QVBoxLayout()
-
-        self.upper_layout = QHBoxLayout()
-        self.upper_layout.addWidget(self.file_label)
-        self.upper_layout.addWidget(self.file_button)
-
-        self.lower_layout = QVBoxLayout()
-        self.inner_lower_layout = QHBoxLayout()
-        self.inner_lower_layout.addWidget(self.hash_label)
-        self.inner_lower_layout.addWidget(self.hash_value)
-        self.lower_layout.addLayout(self.inner_lower_layout)
-        self.lower_layout.addWidget(self.hash_copy_button)
-
-        self.layout.addLayout(self.upper_layout)
-        self.layout.addLayout(self.lower_layout)
-
-        self.central_widget.setLayout(self.layout)
-
-        self.file_button.clicked.connect(self.open_file)
-        self.hash_copy_button.clicked.connect(self.copy_hash)
-
+        
+        self.main_layout = QVBoxLayout()
+        self.main_layout.addW
+        
     def open_file(self):
         file_path, file_name = QFileDialog.getOpenFileName(
             self, "Datei auswählen", "", "Alle Dateien (*)")
@@ -60,8 +30,7 @@ class MainWindow(QMainWindow):
         with open(file_path, "rb") as f:
             data = f.read()
 
-        hash_value = sha256(data).hexdigest()
-        self.hash_value.setText(hash_value)
+        return data
 
     def copy_hash(self):
         if not env.text_edit:
