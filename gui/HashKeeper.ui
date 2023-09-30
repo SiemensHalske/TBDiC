@@ -25,24 +25,35 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QListView" name="listView_selectDirectories">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="selectionMode">
-        <enum>QAbstractItemView::MultiSelection</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="Line" name="line">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
       </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QPushButton" name="pushButton_selectBaseDir">
+         <property name="text">
+          <string>Select base directory</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListView" name="listView_selectDirectories">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::MultiSelection</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
       <spacer name="verticalSpacer_3">
@@ -158,7 +169,7 @@
      <item>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="2" column="1">
-        <widget class="QCheckBox" name="checkBox_2">
+        <widget class="QCheckBox" name="checkBox_SHA1">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -168,7 +179,7 @@
         </widget>
        </item>
        <item row="2" column="2">
-        <widget class="QCheckBox" name="checkBox">
+        <widget class="QCheckBox" name="checkBox_SHA256">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -178,7 +189,7 @@
         </widget>
        </item>
        <item row="4" column="2">
-        <widget class="QCheckBox" name="checkBox_9">
+        <widget class="QCheckBox" name="checkBox_TIGER">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -188,17 +199,17 @@
         </widget>
        </item>
        <item row="4" column="0">
-        <widget class="QCheckBox" name="checkBox_7">
+        <widget class="QCheckBox" name="checkBox_BLAKE3">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
          <property name="text">
-          <string>BLAKE2</string>
+          <string>BLAKE3</string>
          </property>
         </widget>
        </item>
        <item row="3" column="2">
-        <widget class="QCheckBox" name="checkBox_4">
+        <widget class="QCheckBox" name="checkBox_WHIRL">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -208,7 +219,7 @@
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QCheckBox" name="checkBox_6">
+        <widget class="QCheckBox" name="checkBox_SHA3">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -218,7 +229,7 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QCheckBox" name="checkBox_8">
+        <widget class="QCheckBox" name="checkBox_RIPEMD160">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -247,7 +258,7 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QCheckBox" name="checkBox_5">
+        <widget class="QCheckBox" name="checkBox_hashMD5">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -257,7 +268,7 @@
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QCheckBox" name="checkBox_3">
+        <widget class="QCheckBox" name="checkBox_SHA512">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -303,7 +314,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QTimeEdit" name="timeEdit">
+        <widget class="QTimeEdit" name="timeEdit_setDailyTime">
          <property name="layoutDirection">
           <enum>Qt::LeftToRight</enum>
          </property>
@@ -316,7 +327,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QPushButton" name="pushButton_setDailyTime">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -347,7 +358,7 @@
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="pushButton_startHashRound">
        <property name="text">
         <string>Start / Set</string>
        </property>
