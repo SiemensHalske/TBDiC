@@ -47,8 +47,12 @@ class CoreFunctions:
     def clear_screen(self) -> None:
         """Clears the screen"""
         os.system("cls" if os.name == "nt" else "clear")
-        
-    def
+
+    def _uiPathAssembler(
+        self,
+        display_window: str,
+    ) -> str:
+        pass
 
 
 class UiLoader:
