@@ -156,12 +156,20 @@ class CoreFunctions(coreCryptoFunctions):
         """Clears the screen"""
         os.system("cls" if os.name == "nt" else "clear")
 
+<<<<<<< HEAD
     def redesign_file_list(self, file_list: list[str]) -> list[str, str]:
         """
             Redesigns the file list to a list of
             tuples with the file path and an empty string
         """
         return [(file_path, "") for file_path in file_list]
+=======
+    def _uiPathAssembler(
+        self,
+        display_window: str,
+    ) -> str:
+        pass
+>>>>>>> 8a4266cb8e7accf2652c79104da5937adadcc474
 
 
 class UiLoader:
@@ -493,6 +501,9 @@ def setup() -> SimpleNamespace:
 
 
 if __name__ == "__main__":
+    operating_system = os.name
+    if operating_system == "nt" and sys.argv[1] != "nocheck":
+        sys.exit("This script is not compatible with Windows.")
     CoreFunctions().clear_screen()
     env = setup()
     exit_code = main(sys.argv, env)
