@@ -13,104 +13,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Wizard(object):
     def setupUi(self, Wizard):
-<<<<<<< HEAD
-        if not Wizard.objectName():
-            Wizard.setObjectName(u"Wizard")
-        Wizard.resize(530, 686)
-        self.wizardPage1 = QWizardPage()
-        self.wizardPage1.setObjectName(u"wizardPage1")
-        self.verticalLayoutWidget = QWidget(self.wizardPage1)
-        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(10, 0, 494, 581))
-        self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.line_6 = QFrame(self.verticalLayoutWidget)
-        self.line_6.setObjectName(u"line_6")
-        self.line_6.setFrameShape(QFrame.VLine)
-        self.line_6.setFrameShadow(QFrame.Sunken)
-
-        self.horizontalLayout.addWidget(self.line_6)
-
-        self.verticalLayout_5 = QVBoxLayout()
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.label_uPromptSelectPath = QLabel(self.verticalLayoutWidget)
-        self.label_uPromptSelectPath.setObjectName(u"label_uPromptSelectPath")
-        self.label_uPromptSelectPath.setAutoFillBackground(True)
-        self.label_uPromptSelectPath.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_5.addWidget(self.label_uPromptSelectPath)
-
-        self.pushButton_openDatabaseFileDialog = QPushButton(self.verticalLayoutWidget)
-        self.pushButton_openDatabaseFileDialog.setObjectName(u"pushButton_openDatabaseFileDialog")
-
-        self.verticalLayout_5.addWidget(self.pushButton_openDatabaseFileDialog)
-
-        self.line_5 = QFrame(self.verticalLayoutWidget)
-        self.line_5.setObjectName(u"line_5")
-        self.line_5.setFrameShape(QFrame.HLine)
-        self.line_5.setFrameShadow(QFrame.Sunken)
-
-        self.verticalLayout_5.addWidget(self.line_5)
-
-        self.label_displayDatabasePath = QLabel(self.verticalLayoutWidget)
-        self.label_displayDatabasePath.setObjectName(u"label_displayDatabasePath")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_displayDatabasePath.sizePolicy().hasHeightForWidth())
-        self.label_displayDatabasePath.setSizePolicy(sizePolicy)
-        self.label_displayDatabasePath.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_5.addWidget(self.label_displayDatabasePath)
-
-
-        self.horizontalLayout.addLayout(self.verticalLayout_5)
-
-
-        self.verticalLayout.addLayout(self.horizontalLayout)
-
-        self.line = QFrame(self.verticalLayoutWidget)
-        self.line.setObjectName(u"line")
-        self.line.setFrameShape(QFrame.HLine)
-        self.line.setFrameShadow(QFrame.Sunken)
-
-        self.verticalLayout.addWidget(self.line)
-
-        self.horizontalLayout_3 = QHBoxLayout()
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.label_uPromptSelectTimezone = QLabel(self.verticalLayoutWidget)
-        self.label_uPromptSelectTimezone.setObjectName(u"label_uPromptSelectTimezone")
-        self.label_uPromptSelectTimezone.setAutoFillBackground(True)
-        self.label_uPromptSelectTimezone.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_3.addWidget(self.label_uPromptSelectTimezone)
-
-        self.line_4 = QFrame(self.verticalLayoutWidget)
-        self.line_4.setObjectName(u"line_4")
-        self.line_4.setFrameShape(QFrame.VLine)
-        self.line_4.setFrameShadow(QFrame.Sunken)
-
-        self.horizontalLayout_3.addWidget(self.line_4)
-
-        self.verticalLayout_3 = QVBoxLayout()
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.checkBox_autoTimezone = QCheckBox(self.verticalLayoutWidget)
-        self.checkBox_autoTimezone.setObjectName(u"checkBox_autoTimezone")
-
-        self.verticalLayout_3.addWidget(self.checkBox_autoTimezone)
-
-        self.line_3 = QFrame(self.verticalLayoutWidget)
-        self.line_3.setObjectName(u"line_3")
-        self.line_3.setFrameShape(QFrame.HLine)
-        self.line_3.setFrameShadow(QFrame.Sunken)
-
-        self.verticalLayout_3.addWidget(self.line_3)
-
-        self.comboBox_selectTimezone = QComboBox(self.verticalLayoutWidget)
-=======
         Wizard.setObjectName("Wizard")
         Wizard.resize(530, 646)
         self.wizardPage1 = QtWidgets.QWizardPage()
@@ -143,14 +45,12 @@ class Ui_Wizard(object):
         self.horizontalLayout_3.addWidget(self.checkBox_autodetectTimezone)
         self.comboBox_selectTimezone = QtWidgets.QComboBox(self.verticalLayoutWidget)
         self.comboBox_selectTimezone.setObjectName("comboBox_selectTimezone")
->>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
         self.comboBox_selectTimezone.addItem("")
         self.comboBox_selectTimezone.addItem("")
         self.comboBox_selectTimezone.addItem("")
         self.comboBox_selectTimezone.addItem("")
         self.comboBox_selectTimezone.addItem("")
         self.comboBox_selectTimezone.addItem("")
-<<<<<<< HEAD
         self.comboBox_selectTimezone.setObjectName(u"comboBox_selectTimezone")
 
         self.verticalLayout_3.addWidget(self.comboBox_selectTimezone)
@@ -437,22 +337,6 @@ class Ui_Wizard(object):
 
         self.verticalLayout_4.addLayout(self.gridLayout)
 
-=======
-        self.horizontalLayout_3.addWidget(self.comboBox_selectTimezone)
-        self.verticalLayout.addLayout(self.horizontalLayout_3)
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.label_2 = QtWidgets.QLabel(self.verticalLayoutWidget)
-        self.label_2.setObjectName("label_2")
-        self.horizontalLayout_2.addWidget(self.label_2)
-        self.pushButton_3 = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.horizontalLayout_2.addWidget(self.pushButton_3)
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
-        Wizard.addPage(self.wizardPage1)
-        self.wizardPage2 = QtWidgets.QWizardPage()
-        self.wizardPage2.setObjectName("wizardPage2")
->>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
         Wizard.addPage(self.wizardPage2)
 
         self.retranslateUi(Wizard)
@@ -462,58 +346,6 @@ class Ui_Wizard(object):
         Wizard.setTabOrder(self.comboBox_selectTimezone, self.pushButton_3)
 
     def retranslateUi(self, Wizard):
-<<<<<<< HEAD
-        Wizard.setWindowTitle(QCoreApplication.translate("Wizard", u"Wizard", None))
-        self.label_uPromptSelectPath.setText(QCoreApplication.translate("Wizard", u"Select a path for the database:", None))
-        self.pushButton_openDatabaseFileDialog.setText(QCoreApplication.translate("Wizard", u"Open file dialog", None))
-        self.label_displayDatabasePath.setText(QCoreApplication.translate("Wizard", u"DB filepath", None))
-        self.label_uPromptSelectTimezone.setText(QCoreApplication.translate("Wizard", u"Set the timezone you're in:", None))
-        self.checkBox_autoTimezone.setText(QCoreApplication.translate("Wizard", u"Auto detect timezone", None))
-        self.comboBox_selectTimezone.setItemText(0, QCoreApplication.translate("Wizard", u"UTC", None))
-        self.comboBox_selectTimezone.setItemText(1, QCoreApplication.translate("Wizard", u"Europe / London", None))
-        self.comboBox_selectTimezone.setItemText(2, QCoreApplication.translate("Wizard", u"Europe / Berlin", None))
-        self.comboBox_selectTimezone.setItemText(3, QCoreApplication.translate("Wizard", u"Europe / Paris", None))
-        self.comboBox_selectTimezone.setItemText(4, QCoreApplication.translate("Wizard", u"Europe / Moscow", None))
-        self.comboBox_selectTimezone.setItemText(5, QCoreApplication.translate("Wizard", u"Asia / Tokyo", None))
-
-        self.checkBox_2.setText(QCoreApplication.translate("Wizard", u"Enable permanent hash algorithm", None))
-        self.label_uSelectPermanentAlgorithm.setText(QCoreApplication.translate("Wizard", u"Permanent hash algorithm (CAUTION!)", None))
-        self.comboBox_selectPermanentAlgorithm.setItemText(0, QCoreApplication.translate("Wizard", u"- - - ", None))
-        self.comboBox_selectPermanentAlgorithm.setItemText(1, QCoreApplication.translate("Wizard", u"MD5", None))
-        self.comboBox_selectPermanentAlgorithm.setItemText(2, QCoreApplication.translate("Wizard", u"SHA-1", None))
-        self.comboBox_selectPermanentAlgorithm.setItemText(3, QCoreApplication.translate("Wizard", u"SHA256", None))
-        self.comboBox_selectPermanentAlgorithm.setItemText(4, QCoreApplication.translate("Wizard", u"SHA-3", None))
-        self.comboBox_selectPermanentAlgorithm.setItemText(5, QCoreApplication.translate("Wizard", u"SHA512", None))
-        self.comboBox_selectPermanentAlgorithm.setItemText(6, QCoreApplication.translate("Wizard", u"Whirlpool", None))
-        self.comboBox_selectPermanentAlgorithm.setItemText(7, QCoreApplication.translate("Wizard", u"Blake3", None))
-        self.comboBox_selectPermanentAlgorithm.setItemText(8, QCoreApplication.translate("Wizard", u"RIPEMD-160", None))
-        self.comboBox_selectPermanentAlgorithm.setItemText(9, QCoreApplication.translate("Wizard", u"Tiger", None))
-
-        self.comboBox_selectPermanentAlgorithm.setCurrentText(QCoreApplication.translate("Wizard", u"- - - ", None))
-        self.checkBox.setText(QCoreApplication.translate("Wizard", u"Encrypt database", None))
-        self.comboBox_selectPermanentAlgorithm_2.setItemText(0, QCoreApplication.translate("Wizard", u"- - - ", None))
-        self.comboBox_selectPermanentAlgorithm_2.setItemText(1, QCoreApplication.translate("Wizard", u"MD5", None))
-        self.comboBox_selectPermanentAlgorithm_2.setItemText(2, QCoreApplication.translate("Wizard", u"SHA-1", None))
-        self.comboBox_selectPermanentAlgorithm_2.setItemText(3, QCoreApplication.translate("Wizard", u"SHA256", None))
-        self.comboBox_selectPermanentAlgorithm_2.setItemText(4, QCoreApplication.translate("Wizard", u"SHA-3", None))
-        self.comboBox_selectPermanentAlgorithm_2.setItemText(5, QCoreApplication.translate("Wizard", u"SHA512", None))
-        self.comboBox_selectPermanentAlgorithm_2.setItemText(6, QCoreApplication.translate("Wizard", u"Whirlpool", None))
-        self.comboBox_selectPermanentAlgorithm_2.setItemText(7, QCoreApplication.translate("Wizard", u"Blake3", None))
-        self.comboBox_selectPermanentAlgorithm_2.setItemText(8, QCoreApplication.translate("Wizard", u"RIPEMD-160", None))
-        self.comboBox_selectPermanentAlgorithm_2.setItemText(9, QCoreApplication.translate("Wizard", u"Tiger", None))
-
-        self.comboBox_selectPermanentAlgorithm_2.setCurrentText(QCoreApplication.translate("Wizard", u"- - - ", None))
-        self.label.setText(QCoreApplication.translate("Wizard", u"Your configuration", None))
-        self.label_3.setText(QCoreApplication.translate("Wizard", u"Database path", None))
-        self.label_8.setText(QCoreApplication.translate("Wizard", u"- - -", None))
-        self.label_6.setText(QCoreApplication.translate("Wizard", u"Current date and time", None))
-        self.label_4.setText(QCoreApplication.translate("Wizard", u"- - -", None))
-        self.label_7.setText(QCoreApplication.translate("Wizard", u"- - -", None))
-        self.label_2.setText(QCoreApplication.translate("Wizard", u"Database ready?", None))
-        self.label_5.setText(QCoreApplication.translate("Wizard", u"Timezone", None))
-    # retranslateUi
-
-=======
         _translate = QtCore.QCoreApplication.translate
         Wizard.setWindowTitle(_translate("Wizard", "Wizard"))
         self.label.setText(_translate("Wizard", "Select a path for the database:"))
@@ -528,4 +360,3 @@ class Ui_Wizard(object):
         self.comboBox_selectTimezone.setItemText(5, _translate("Wizard", "Asia / Tokyo"))
         self.label_2.setText(_translate("Wizard", "TextLabel"))
         self.pushButton_3.setText(_translate("Wizard", "PushButton"))
->>>>>>> b94f87f752b067eb554aa2ee236adcba5564cd26
