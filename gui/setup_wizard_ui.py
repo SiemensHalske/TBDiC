@@ -91,6 +91,11 @@ class Ui_Wizard(object):
         self.comboBox_selectTimezone.addItem("")
         self.comboBox_selectTimezone.addItem("")
         self.comboBox_selectTimezone.addItem("")
+<<<<<<< HEAD
+        self.comboBox_selectTimezone.setObjectName(u"comboBox_selectTimezone")
+
+=======
+>>>>>>> 8a4266cb8e7accf2652c79104da5937adadcc474
         self.verticalLayout_3.addWidget(self.comboBox_selectTimezone)
         self.horizontalLayout_3.addLayout(self.verticalLayout_3)
         self.verticalLayout.addLayout(self.horizontalLayout_3)
@@ -104,6 +109,271 @@ class Ui_Wizard(object):
         self.checkBox_2 = QtWidgets.QCheckBox(self.verticalLayoutWidget)
         self.checkBox_2.setObjectName("checkBox_2")
         self.verticalLayout_6.addWidget(self.checkBox_2)
+<<<<<<< HEAD
+
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.label_uSelectPermanentAlgorithm = QLabel(self.verticalLayoutWidget)
+        self.label_uSelectPermanentAlgorithm.setObjectName(u"label_uSelectPermanentAlgorithm")
+        self.label_uSelectPermanentAlgorithm.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_2.addWidget(self.label_uSelectPermanentAlgorithm)
+
+        self.comboBox_selectPermanentAlgorithm = QComboBox(self.verticalLayoutWidget)
+        self.comboBox_selectPermanentAlgorithm.addItem("")
+        self.comboBox_selectPermanentAlgorithm.addItem("")
+        self.comboBox_selectPermanentAlgorithm.addItem("")
+        self.comboBox_selectPermanentAlgorithm.addItem("")
+        self.comboBox_selectPermanentAlgorithm.addItem("")
+        self.comboBox_selectPermanentAlgorithm.addItem("")
+        self.comboBox_selectPermanentAlgorithm.addItem("")
+        self.comboBox_selectPermanentAlgorithm.addItem("")
+        self.comboBox_selectPermanentAlgorithm.addItem("")
+        self.comboBox_selectPermanentAlgorithm.addItem("")
+        self.comboBox_selectPermanentAlgorithm.setObjectName(u"comboBox_selectPermanentAlgorithm")
+        self.comboBox_selectPermanentAlgorithm.setEnabled(False)
+
+        self.horizontalLayout_2.addWidget(self.comboBox_selectPermanentAlgorithm)
+
+
+        self.verticalLayout_6.addLayout(self.horizontalLayout_2)
+
+
+        self.verticalLayout.addLayout(self.verticalLayout_6)
+
+        self.line_2 = QFrame(self.verticalLayoutWidget)
+        self.line_2.setObjectName(u"line_2")
+        self.line_2.setFrameShape(QFrame.HLine)
+        self.line_2.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout.addWidget(self.line_2)
+
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.checkBox = QCheckBox(self.verticalLayoutWidget)
+        self.checkBox.setObjectName(u"checkBox")
+
+        self.horizontalLayout_6.addWidget(self.checkBox)
+
+        self.comboBox_selectPermanentAlgorithm_2 = QComboBox(self.verticalLayoutWidget)
+        self.comboBox_selectPermanentAlgorithm_2.addItem("")
+        self.comboBox_selectPermanentAlgorithm_2.addItem("")
+        self.comboBox_selectPermanentAlgorithm_2.addItem("")
+        self.comboBox_selectPermanentAlgorithm_2.addItem("")
+        self.comboBox_selectPermanentAlgorithm_2.addItem("")
+        self.comboBox_selectPermanentAlgorithm_2.addItem("")
+        self.comboBox_selectPermanentAlgorithm_2.addItem("")
+        self.comboBox_selectPermanentAlgorithm_2.addItem("")
+        self.comboBox_selectPermanentAlgorithm_2.addItem("")
+        self.comboBox_selectPermanentAlgorithm_2.addItem("")
+        self.comboBox_selectPermanentAlgorithm_2.setObjectName(u"comboBox_selectPermanentAlgorithm_2")
+        self.comboBox_selectPermanentAlgorithm_2.setEnabled(True)
+
+        self.horizontalLayout_6.addWidget(self.comboBox_selectPermanentAlgorithm_2)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_6)
+
+        Wizard.addPage(self.wizardPage1)
+        self.wizardPage2 = QWizardPage()
+        self.wizardPage2.setObjectName(u"wizardPage2")
+        self.verticalLayoutWidget_3 = QWidget(self.wizardPage2)
+        self.verticalLayoutWidget_3.setObjectName(u"verticalLayoutWidget_3")
+        self.verticalLayoutWidget_3.setGeometry(QRect(10, 10, 491, 571))
+        self.verticalLayout_4 = QVBoxLayout(self.verticalLayoutWidget_3)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.label = QLabel(self.verticalLayoutWidget_3)
+        self.label.setObjectName(u"label")
+        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy)
+        font = QFont()
+        font.setPointSize(25)
+        self.label.setFont(font)
+        self.label.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_4.addWidget(self.label)
+
+        self.gridLayout = QGridLayout()
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.label_3 = QLabel(self.verticalLayoutWidget_3)
+        self.label_3.setObjectName(u"label_3")
+        sizePolicy.setHeightForWidth(self.label_3.sizePolicy().hasHeightForWidth())
+        self.label_3.setSizePolicy(sizePolicy)
+        self.label_3.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.label_3, 5, 1, 1, 1)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer_2, 6, 1, 1, 1)
+
+        self.verticalSpacer_10 = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer_10, 0, 2, 1, 1)
+
+        self.label_8 = QLabel(self.verticalLayoutWidget_3)
+        self.label_8.setObjectName(u"label_8")
+        sizePolicy.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
+        self.label_8.setSizePolicy(sizePolicy)
+        self.label_8.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.label_8, 1, 2, 1, 1)
+
+        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_10, 0, 3, 1, 1)
+
+        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_12, 4, 0, 1, 1)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer_3, 4, 2, 1, 1)
+
+        self.label_6 = QLabel(self.verticalLayoutWidget_3)
+        self.label_6.setObjectName(u"label_6")
+        sizePolicy.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
+        self.label_6.setSizePolicy(sizePolicy)
+        self.label_6.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.label_6, 3, 1, 1, 1)
+
+        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_7, 3, 0, 1, 1)
+
+        self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_8, 1, 0, 1, 1)
+
+        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_9, 0, 0, 1, 1)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer_4, 4, 1, 1, 1)
+
+        self.verticalSpacer_11 = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer_11, 8, 2, 1, 1)
+
+        self.verticalSpacer_6 = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer_6, 2, 2, 1, 1)
+
+        self.label_4 = QLabel(self.verticalLayoutWidget_3)
+        self.label_4.setObjectName(u"label_4")
+        sizePolicy.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
+        self.label_4.setSizePolicy(sizePolicy)
+        self.label_4.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.label_4, 5, 2, 1, 1)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_4, 3, 3, 1, 1)
+
+        self.verticalSpacer_8 = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer_8, 0, 1, 1, 1)
+
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_6, 7, 0, 1, 1)
+
+        self.label_7 = QLabel(self.verticalLayoutWidget_3)
+        self.label_7.setObjectName(u"label_7")
+        sizePolicy.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
+        self.label_7.setSizePolicy(sizePolicy)
+        self.label_7.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.label_7, 3, 2, 1, 1)
+
+        self.label_2 = QLabel(self.verticalLayoutWidget_3)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.label_2, 7, 1, 1, 1)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer, 5, 0, 1, 1)
+
+        self.label_5 = QLabel(self.verticalLayoutWidget_3)
+        self.label_5.setObjectName(u"label_5")
+        sizePolicy.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
+        self.label_5.setSizePolicy(sizePolicy)
+        self.label_5.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.label_5, 1, 1, 1, 1)
+
+        self.progressBar = QProgressBar(self.verticalLayoutWidget_3)
+        self.progressBar.setObjectName(u"progressBar")
+        sizePolicy.setHeightForWidth(self.progressBar.sizePolicy().hasHeightForWidth())
+        self.progressBar.setSizePolicy(sizePolicy)
+        self.progressBar.setValue(0)
+
+        self.gridLayout.addWidget(self.progressBar, 7, 2, 1, 1)
+
+        self.verticalSpacer_5 = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer_5, 2, 1, 1, 1)
+
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_5, 5, 3, 1, 1)
+
+        self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_11, 4, 3, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer, 6, 2, 1, 1)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_3, 7, 3, 1, 1)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_2, 1, 3, 1, 1)
+
+        self.verticalSpacer_7 = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer_7, 8, 1, 1, 1)
+
+        self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_13, 8, 3, 1, 1)
+
+        self.horizontalSpacer_14 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_14, 8, 0, 1, 1)
+
+        self.horizontalSpacer_15 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_15, 2, 3, 1, 1)
+
+        self.horizontalSpacer_16 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_16, 2, 0, 1, 1)
+
+        self.horizontalSpacer_17 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_17, 6, 3, 1, 1)
+
+        self.horizontalSpacer_18 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_18, 6, 0, 1, 1)
+
+
+        self.verticalLayout_4.addLayout(self.gridLayout)
+
+=======
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.label_uSelectPermanentAlgorithm = QtWidgets.QLabel(self.verticalLayoutWidget)
@@ -298,6 +568,7 @@ class Ui_Wizard(object):
         spacerItem27 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem27, 6, 0, 1, 1)
         self.verticalLayout_4.addLayout(self.gridLayout)
+>>>>>>> 8a4266cb8e7accf2652c79104da5937adadcc474
         Wizard.addPage(self.wizardPage2)
 
         self.retranslateUi(Wizard)
@@ -317,6 +588,10 @@ class Ui_Wizard(object):
         self.comboBox_selectTimezone.setItemText(3, _translate("Wizard", "Europe / Paris"))
         self.comboBox_selectTimezone.setItemText(4, _translate("Wizard", "Europe / Moscow"))
         self.comboBox_selectTimezone.setItemText(5, _translate("Wizard", "Asia / Tokyo"))
+<<<<<<< HEAD
+        self.label_2.setText(_translate("Wizard", "TextLabel"))
+        self.pushButton_3.setText(_translate("Wizard", "PushButton"))
+=======
         self.checkBox_2.setText(_translate("Wizard", "Enable permanent hash algorithm"))
         self.label_uSelectPermanentAlgorithm.setText(_translate("Wizard", "Permanent hash algorithm (CAUTION!)"))
         self.comboBox_selectPermanentAlgorithm.setCurrentText(_translate("Wizard", "- - - "))
@@ -350,3 +625,4 @@ class Ui_Wizard(object):
         self.label_7.setText(_translate("Wizard", "- - -"))
         self.label_2.setText(_translate("Wizard", "Database ready?"))
         self.label_5.setText(_translate("Wizard", "Timezone"))
+>>>>>>> 8a4266cb8e7accf2652c79104da5937adadcc474

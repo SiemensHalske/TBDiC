@@ -41,17 +41,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QListView" name="listView_selectDirectories">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="selectionMode">
-          <enum>QAbstractItemView::MultiSelection</enum>
-         </property>
-        </widget>
+        <widget class="QTreeView" name="treeView_fileSelection"/>
        </item>
       </layout>
      </item>
@@ -169,7 +159,7 @@
      <item>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="2" column="1">
-        <widget class="QCheckBox" name="checkBox_SHA1">
+        <widget class="QCheckBox" name="checkBox_hashFile_sha1">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -179,7 +169,7 @@
         </widget>
        </item>
        <item row="2" column="2">
-        <widget class="QCheckBox" name="checkBox_SHA256">
+        <widget class="QCheckBox" name="checkBox_hashFile_sha256">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -189,7 +179,7 @@
         </widget>
        </item>
        <item row="4" column="2">
-        <widget class="QCheckBox" name="checkBox_TIGER">
+        <widget class="QCheckBox" name="checkBox_tiger">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -199,7 +189,7 @@
         </widget>
        </item>
        <item row="4" column="0">
-        <widget class="QCheckBox" name="checkBox_BLAKE3">
+        <widget class="QCheckBox" name="checkBox_blake3">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -209,7 +199,7 @@
         </widget>
        </item>
        <item row="3" column="2">
-        <widget class="QCheckBox" name="checkBox_WHIRL">
+        <widget class="QCheckBox" name="checkBox_hashFile_whirlpool">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -219,7 +209,7 @@
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QCheckBox" name="checkBox_SHA3">
+        <widget class="QCheckBox" name="checkBox_hashFile_sha3">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -229,7 +219,7 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QCheckBox" name="checkBox_RIPEMD160">
+        <widget class="QCheckBox" name="checkBox_ripemd160">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -258,7 +248,7 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QCheckBox" name="checkBox_hashMD5">
+        <widget class="QCheckBox" name="checkBox_hashFile_md5">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
@@ -268,7 +258,7 @@
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QCheckBox" name="checkBox_SHA512">
+        <widget class="QCheckBox" name="checkBox_hashFile_sha512">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
