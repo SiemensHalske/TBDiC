@@ -31,6 +31,7 @@ import json
 import sys
 import os
 import hashlib
+import inspect
 # import sqlite3 as sql
 
 from types import SimpleNamespace
@@ -201,8 +202,9 @@ class CoreFunctions(coreCryptoFunctions):
 
             # create the file
             # -> ../data/planned_jobs/<workingtime>.json
+            filename = f"planned_{workingtime}_{hash_type}.json"
             with open(
-                f"{PACKAGE_PATH}data/planned_jobs/planned_{workingtime}_{hash_type}.json",
+                f"{PACKAGE_PATH}data/planned_jobs/{filename}",
                     "w") as f:
                 f.write(file_list_json)
 
@@ -415,6 +417,79 @@ class HashKeeperSystem(HashKeeperCore):
         self._insertIntoDatabase(self._file_list)
 
 
+class TimedHashKeeper:
+    plans_location = HashKeeperCore.DB_PATH + "planned_jobs/"
+    plans_file_extension = "_planned.json"
+
+    planned_jobs = []
+
+    hash_type = "hashFile_md5"
+
+    def __init__(self) -> None:
+        pass
+
+    def load_planned_jobs(self) -> None:
+        """
+        Loads the planned jobs ('_planned.json')
+        from the planned_jobs file.
+        """
+
+        # check if the directory exists
+        if not os.path.exists(self.plans_location):
+            raise ValueError("Path does not exist.")
+
+        # get all files in the directory
+        files = os.listdir(self.plans_location)
+
+        # filter for planned jobs
+        files = [file for file in files if file.endswith(
+            self.plans_file_extension)]
+
+        # load the files
+        for file in files:
+            with open(self.plans_location + file, "r") as f:
+                self.planned_jobs.append(json.load(f))
+
+        # check if the function was called from an instance method
+        frame = inspect.currentframe()
+        if frame is not None:
+            caller_locals = frame.f_back.f_locals
+            if 'self' in caller_locals:
+                return self.planned_jobs
+
+        return 0
+
+    def get_planned_jobs(self) -> list[str]:
+        """Returns the planned jobs."""
+        return self.planned_jobs
+
+    def get_planned_job(self, job_id: int) -> dict[str, str]:
+        """Returns a planned job."""
+        return self.planned_jobs[job_id]
+
+    def run(self, file_list: list[str, str], hash_type: str) -> int:
+        """Runs a hash round on a planned job / a list of files."""
+
+        # check if the hash type is supported
+        if hash_type not in HashKeeperCore.enabled_hash_types:
+            raise ValueError("Hash type not supported.")
+
+        # check if the file list is not empty
+        if not file_list:
+            raise ValueError("File list is empty.")
+
+        # hash the files
+        hashed_file_list = []
+        for file_tuple in file_list:
+            file_hash = getattr(coreCryptoFunctions, hash_type)(
+                self, file_tuple[0])
+            hashed_file_list.append((file_tuple[0], file_hash))
+
+        # TODO: #2 insert the hashes into the database
+
+
+        return 0
+
 class FileTreeApp_old(QObject):
     selectedFilesChanged = pyqtSignal(list)
 
@@ -558,10 +633,14 @@ class MainApp(QMainWindow):
 
         self.hashing_system.setHashType(self._hash_type)
         self.hashing_system.setFileList(self.FILE_LIST)
+
+        CoreFunctions().createJobFile(
+            self.FILE_LIST, self._hash_type, self._workingtime)
+
         self.hashing_system.firstRun()
 
         CoreFunctions.createJobFile(
-            self.FILE_LIST, self._hash_type, self._workingtime)
+            self.FILE_LIST, self._hash_type, self._workingtime, planned=True)
         self.onPopulateTextBrowser(self.FILE_LIST)
 
     def onPopulateTextBrowser(self, file_list: list[str, str]):
