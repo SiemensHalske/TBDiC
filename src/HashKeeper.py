@@ -26,9 +26,12 @@ Copyright (c) 2023 Hendrik Siemens
 """
 
 # Import statements
+import datetime
+import json
 import sys
 import os
 import hashlib
+# import sqlite3 as sql
 
 from types import SimpleNamespace
 from typing import Optional, Union
@@ -40,9 +43,15 @@ from PyQt5.uic import loadUi
 
 from Crypto.Hash import RIPEMD160
 from blake3 import blake3
+from FileTreeApp import FileTreeApp
 
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from db_models import Base, FileHash, Timestamp
 
 # Global variables
+
+PACKAGE_PATH = "/home/hendrik/Documents/Projects/TBDiC/"
 
 ENABLED_HASH_TYPES = {
     "md5": True,
@@ -156,27 +165,68 @@ class CoreFunctions(coreCryptoFunctions):
         """Clears the screen"""
         os.system("cls" if os.name == "nt" else "clear")
 
-<<<<<<< HEAD
     def redesign_file_list(self, file_list: list[str]) -> list[str, str]:
         """
             Redesigns the file list to a list of
             tuples with the file path and an empty string
         """
         return [(file_path, "") for file_path in file_list]
-=======
-    def _uiPathAssembler(
+
+    def _convertListToJson(self, file_list: list[str, str]) -> str:
+        """Converts the file list to a JSON string."""
+
+        return json.dumps(file_list)
+
+    def createJobFile(
         self,
-        display_window: str,
-    ) -> str:
-        pass
->>>>>>> 8a4266cb8e7accf2652c79104da5937adadcc474
+        file_list: list[str, str],
+        hash_type: str,
+        workingtime: str,
+        planned: bool = False
+    ) -> None:
+
+        file_list_json = self._convertListToJson(file_list)
+
+        # create a job file
+        # depending on 'planned' it is decided
+        # if it is a planned job or a manual one
+        # -> also decides storage location
+
+        # planned job
+        if planned:
+            # create directory if it doesn't exist
+            # -> ../data/planned_jobs/
+            if not os.path.exists(f"{PACKAGE_PATH}data/planned_jobs"):
+                os.makedirs(f"{PACKAGE_PATH}data/planned_jobs")
+
+            # create the file
+            # -> ../data/planned_jobs/<workingtime>.json
+            with open(
+                f"{PACKAGE_PATH}data/planned_jobs/planned_{workingtime}_{hash_type}.json",
+                    "w") as f:
+                f.write(file_list_json)
+
+        # manual job
+        else:
+            # create directory if it doesn't exist
+            # -> ../data/
+            if not os.path.exists(f"{PACKAGE_PATH}data"):
+                os.makedirs(f"{PACKAGE_PATH}data")
+
+            # create the file
+            # -> ../data/<workingtime>.json
+            with open(f"{PACKAGE_PATH}data/{workingtime}_{hash_type}.json",
+                      "w") as f:
+                f.write(file_list_json)
+
+        return
 
 
 class UiLoader:
     # ../gui/
     base_ui_path = "/home/hendrik/Documents/Projects/TBDiC/gui/"
     ui_list = {
-        "main": "main.ui",
+        "main": "main.ui"
     }
 
     def __init__(self):
@@ -210,44 +260,70 @@ class UiLoader:
 
 
 class HashKeeperCore:
+    DB_PATH = "/home/hendrik/Documents/Projects/TBDiC/data/"
+    DB_NAME = "hashkeeper.db"
+
     def __init__(self) -> None:
         pass
 
-    def _runSelfTest(self):
-        """Runs a self test to check if everything is working as expected."""
-        selftest_message = """
-        ********************
-        Running self test...
-        Nothing to do here...
-        Self test successful.
-        ********************
+    def get_db_session(self) -> sessionmaker:
+        engine = create_engine(
+            f"sqlite:///{HashKeeperCore.DB_PATH}{HashKeeperCore.DB_NAME}",
+            echo=True
+        )
+
+        Session = sessionmaker(bind=engine)
+        session = Session()
+
+        return session
+
+    def _change_db(self, new_path: str) -> int:
+        """Changes the database path.
+        new_path: str -> absolute path to the new database
+            |
+            |--> extract db_path
+            |--> extract db_name
         """
+        try:
+            # Check if the path exists
+            if not os.path.exists(new_path):
+                raise ValueError("Path does not exist.")
 
-        print(selftest_message)
+            # Extract db_path
+            db_path = os.path.dirname(new_path)
 
-    def _hashRound(
-        self,
-        file_list: list[str, str],
-        hash_type: str
-    ) -> list[str, str]:
-        """Performs a hash round."""
-        # Loop for every file in the list and apply the
-        # selected hash algorithm.
-        # The first value of the list (multiple lists.. list in list...)
-        # is the file path.
-        # The second value is reserved for the hash string to be generated
+            # Extract db_name
+            db_name = os.path.basename(new_path)
 
-        hashed_list = []
+            # Update class variables
+            self.DB_PATH = db_path
+            self.DB_NAME = db_name
 
-        # print(f"Length of file list: {len(file_list)}")
-        # print(f"File list: {file_list}")
-        # return file_list
+            return 0
+        except ValueError as e:
+            print(f"Error: {e}")
+            return -1
 
-        for file in file_list:
-            file_hash = getattr(CoreFunctions(), hash_type)(file[0])
-            hashed_list.append((file[0], file_hash))
+    def create_database(self, db_path: str):
+        """Creates the database."""
 
-        return hashed_list
+        # Check if the path exists
+        if not os.path.exists(db_path):
+            raise ValueError("Path does not exist.")
+
+        # Update class variables
+        self.DB_PATH = os.path.dirname(db_path)
+        self.DB_NAME = os.path.basename(db_path)
+
+        # Create database
+        engine = create_engine(
+            f"sqlite:///{self.DB_PATH}{self.DB_NAME}",
+            echo=True
+        )
+
+        Base.metadata.create_all(engine)
+
+        return 0
 
 
 class HashKeeperSystem(HashKeeperCore):
@@ -263,65 +339,83 @@ class HashKeeperSystem(HashKeeperCore):
         # "hashFile_tiger192"
     ]
 
+    _hash_type: str = ""
+    _file_list: list[str, str] = []
+
     def __init__(self) -> None:
         super().__init__()
-        self._runSelfTest()
 
         self._file_list: list[str, str] = ["", ""]
         self._hash_type: str = ""
         self._base_dir: str = ""
 
-    def start(self, start_hash_round: bool = True) -> list[str, str]:
-        """Starts the HashKeeper system."""
-        if start_hash_round and self._file_list and self._hash_type:
-            file_list = self.onStartHashRound()
-            return file_list
-        else:
-            print("Error: Could not start HashKeeper system.")
-            return -1
+        self._runSelfTest()
 
-    def onStartHashRound(self) -> list[str, str]:
-        """Starts a hash round."""
-        file_list = self._hashRound(self._file_list, self._hash_type)
-        return file_list
+    def _runSelfTest(self) -> None:
+        """Runs a self test to check if the system is ready to use."""
+        msg = """
+        Running self test...
+        Okay... I'm ready to go!
+        """
+        print(msg)
+        return
 
-    def setFileList(self, file_list: list[str, str]) -> int:
-        """#!DO NOT CHANGE! Sets the file list."""
-        if not self._file_list:
-            print("Uhoh, something's fishy here...")
-            return -1
+    def _insertIntoDatabase(self, file_list: list[str, str]) -> int:
+        """Inserts the file list into the database."""
+        return_code: int = -1
 
+        session = self.get_db_session()
+        try:
+            # Create a new timestamp and add it to the database
+            timestamp = Timestamp()
+            session.add(timestamp)
+
+            # Add each file hash to the database with a foreign
+            # key to the timestamp
+            for file_tuple in file_list:
+                file_hash = FileHash(
+                    timestamp_id=timestamp.id,
+                    file_path=file_tuple[0],
+                    hash_type=self._hash_type,
+                    file_hash=file_tuple[1]
+                )
+                session.add(file_hash)
+
+            session.commit()
+            return_code = 0
+        except Exception as e:
+            print(f"Error: {e}")
+            session.rollback()
+        finally:
+            session.close()
+            if return_code == 0:
+                print("File hashes added to database.")
+            else:
+                print("Error adding file hashes to database.")
+        return return_code
+
+    def setFileList(self, file_list: list[str, str]) -> None:
+        """Sets the file list."""
         self._file_list = file_list
-
-        # old -> list[str]; new is list[str, str]
-        # self._base_dir = str(self._file_list[0].rsplit("/", 1)[0])
-        self._base_dir = str(self._file_list[0][0].rsplit("/", 1)[0])
-
-        return 0
+        return
 
     def setHashType(self, hash_type: str) -> None:
-        """#!DO NOT CHANGE! Sets the hash type."""
-        if hash_type not in HashKeeperSystem.enabled_hash_types:
-            print("Error: Hash type not supported.")
-            return -1
-
+        """Sets the hash type."""
         self._hash_type = hash_type
-        return 0
+        return
 
-    def hashFile(self, file_path: str, hash_type: str) -> str:
-        """#!DO NOT CHANGE! Hashes a file."""
+    def firstRun(self) -> None:
+        """First run of the system."""
+        hashed_file_list = []
+        for file_tuple in self._file_list:
+            file_hash = getattr(coreCryptoFunctions, self._hash_type)(
+                self, file_tuple[0])
+            hashed_file_list.append((file_tuple[0], file_hash))
 
-        if hash_type not in HashKeeperSystem.enabled_hash_types:
-            print("Error: Hash type not supported.")
-            return "Unsupported hash type"
-        elif not os.path.exists(file_path):
-            print("Error: File does not exist.")
-            return "File does not exist"
-
-        return getattr(CoreFunctions(), hash_type)(file_path)
+        self._insertIntoDatabase(self._file_list)
 
 
-class FileTreeApp(QObject):
+class FileTreeApp_old(QObject):
     selectedFilesChanged = pyqtSignal(list)
 
     def __init__(self, tree_view_widget):
@@ -371,6 +465,8 @@ class FileTreeApp(QObject):
 
 class MainApp(QMainWindow):
     FILE_LIST = []
+    _hash_type = ""
+    _workingtime: str = ""
 
     def __init__(self, parent=None):
         super(MainApp, self).__init__(parent)
@@ -419,7 +515,7 @@ class MainApp(QMainWindow):
         # (checkBox_hashFile_md5)
         self.main_window.checkBox_hashFile_md5.setChecked(True)
 
-    def getkHashType(self):
+    def getHashType(self):
         """Checks which hash type is selected."""
         checkBox_basename = "checkBox_hashFile_"
 
@@ -454,7 +550,19 @@ class MainApp(QMainWindow):
         self.FILE_LIST = selected_files
 
     def onStartHashRound(self):
-        pass
+        """Starts a hash round."""
+        print("Starting hash round...")
+
+        self._hash_type = self.getHashType()
+        self._workingtime = getCustomTimestamp()
+
+        self.hashing_system.setHashType(self._hash_type)
+        self.hashing_system.setFileList(self.FILE_LIST)
+        self.hashing_system.firstRun()
+
+        CoreFunctions.createJobFile(
+            self.FILE_LIST, self._hash_type, self._workingtime)
+        self.onPopulateTextBrowser(self.FILE_LIST)
 
     def onPopulateTextBrowser(self, file_list: list[str, str]):
         # Clear previous results
@@ -498,6 +606,11 @@ def setup() -> SimpleNamespace:
     glob = SimpleNamespace()
 
     return glob
+
+
+def getCustomTimestamp() -> str:
+    """Returns a custom timestamp."""
+    return datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
 
 if __name__ == "__main__":
