@@ -59,4 +59,5 @@ def create_database(db_path: str):
 
 if __name__ == "__main__":
     # Pass your database path here
-    create_engine('sqlite:////home/hendrik/Documents/Projects/TBDiC/data/HashKeeper.db')
+    db_path='sqlite:////home/hendrik/Documents/Projects/TBDiC/data/HashKeeper.db'
+    create_database(db_path)
