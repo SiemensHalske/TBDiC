@@ -470,6 +470,8 @@ class TimedHashKeeper:
     def run(self, file_list: list[str, str], hash_type: str) -> int:
         """Runs a hash round on a planned job / a list of files."""
 
+        timestamp = Timestamp()
+
         # check if the hash type is supported
         if hash_type not in HashKeeperCore.enabled_hash_types:
             raise ValueError("Hash type not supported.")
@@ -486,9 +488,45 @@ class TimedHashKeeper:
             hashed_file_list.append((file_tuple[0], file_hash))
 
         # TODO: #2 insert the hashes into the database
+        message_set = self._insertIntoDatabase(hashed_file_list, timestamp)
+        return message_set
 
+    def _insertIntoDatabase(
+            self,
+            file_list: list[str, str],
+            timestamp: Timestamp) -> int:
+        """Inserts the file list into the database."""
+        return_code: int = -1
 
-        return 0
+        session = self.get_db_session()
+        try:
+            # Create a new timestamp and add it to the database
+            session.add(timestamp)
+
+            # Add each file hash to the database with a foreign
+            # key to the timestamp
+            for file_tuple in file_list:
+                file_hash = FileHash(
+                    timestamp_id=timestamp.id,
+                    file_path=file_tuple[0],
+                    hash_type=self._hash_type,
+                    file_hash=file_tuple[1]
+                )
+                session.add(file_hash)
+
+            session.commit()
+            return_code = 0
+        except Exception as e:
+            print(f"Error: {e}")
+            session.rollback()
+        finally:
+            session.close()
+            if return_code == 0:
+                print("File hashes added to database.")
+            else:
+                print("Error adding file hashes to database.")
+        return return_code
+
 
 class FileTreeApp_old(QObject):
     selectedFilesChanged = pyqtSignal(list)
